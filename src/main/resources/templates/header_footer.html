@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="with=device-width,initial-scale=1">
+    <title>[[#{app.report.name}]]</title>
+    <link href="ccs/bootstrap.css" type="text/css" rel="stylesheet"></link>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <!--&lt;!&ndash; Latest compiled and minified CSS &ndash;&gt;-->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+
+    <!--&lt;!&ndash; Optional theme &ndash;&gt;-->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+
+    <!--&lt;!&ndash; Latest compiled and minified JavaScript &ndash;&gt;-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+    <style type="text/css">
+        .pagination {
+            margin: 0px;
+        }
+
+        .pagination > li > a, .pagination >li >span {
+            margin: 0 5px;
+            border: 1px solid #dddddd;
+        }
+
+        .glyphicon {
+            margin-right: 3px;
+        }
+
+        .highlight {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default" th:fragment="header">
+        <div class="container" style="...">
+            <h2>《Spring Boot 实战》系列课实战案例</h2>
+        </div>
+    </nav>
+</body>
+</html>

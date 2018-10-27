@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.openaidata.thymeleaf.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.openaidata.thymeleaf.entity.User">
+    <constructor>
+      <arg column="empno" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="ename" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="job" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="mgr" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="hiredate" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="sal" javaType="java.lang.Float" jdbcType="REAL" />
+      <arg column="comm" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="deptno" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="dname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="photoFile" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.openaidata.thymeleaf.entity.User">
+    insert into user (empno, ename, job, 
+      mgr, hiredate, sal, 
+      comm, deptno, dname, 
+      photoFile)
+    values (#{empno,jdbcType=INTEGER}, #{ename,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR}, 
+      #{mgr,jdbcType=INTEGER}, #{hiredate,jdbcType=TIMESTAMP}, #{sal,jdbcType=REAL}, 
+      #{comm,jdbcType=VARCHAR}, #{deptno,jdbcType=INTEGER}, #{dname,jdbcType=VARCHAR}, 
+      #{photoFile,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.openaidata.thymeleaf.entity.User">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empno != null">
+        empno,
+      </if>
+      <if test="ename != null">
+        ename,
+      </if>
+      <if test="job != null">
+        job,
+      </if>
+      <if test="mgr != null">
+        mgr,
+      </if>
+      <if test="hiredate != null">
+        hiredate,
+      </if>
+      <if test="sal != null">
+        sal,
+      </if>
+      <if test="comm != null">
+        comm,
+      </if>
+      <if test="deptno != null">
+        deptno,
+      </if>
+      <if test="dname != null">
+        dname,
+      </if>
+      <if test="photoFile != null">
+        photoFile,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empno != null">
+        #{empno,jdbcType=INTEGER},
+      </if>
+      <if test="ename != null">
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null">
+        #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="mgr != null">
+        #{mgr,jdbcType=INTEGER},
+      </if>
+      <if test="hiredate != null">
+        #{hiredate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sal != null">
+        #{sal,jdbcType=REAL},
+      </if>
+      <if test="comm != null">
+        #{comm,jdbcType=VARCHAR},
+      </if>
+      <if test="deptno != null">
+        #{deptno,jdbcType=INTEGER},
+      </if>
+      <if test="dname != null">
+        #{dname,jdbcType=VARCHAR},
+      </if>
+      <if test="photoFile != null">
+        #{photoFile,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.openaidata.thymeleaf.entity.User">
+    <constructor>
+      <arg column="empno" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="ename" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="job" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="mgr" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="hiredate" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="sal" javaType="java.lang.Float" jdbcType="REAL" />
+      <arg column="comm" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="deptno" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="dname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="photoFile" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.openaidata.thymeleaf.entity.User">
+    insert into user (empno, ename, job, 
+      mgr, hiredate, sal, 
+      comm, deptno, dname, 
+      photoFile)
+    values (#{empno,jdbcType=INTEGER}, #{ename,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR}, 
+      #{mgr,jdbcType=INTEGER}, #{hiredate,jdbcType=TIMESTAMP}, #{sal,jdbcType=REAL}, 
+      #{comm,jdbcType=VARCHAR}, #{deptno,jdbcType=INTEGER}, #{dname,jdbcType=VARCHAR}, 
+      #{photoFile,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.openaidata.thymeleaf.entity.User">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empno != null">
+        empno,
+      </if>
+      <if test="ename != null">
+        ename,
+      </if>
+      <if test="job != null">
+        job,
+      </if>
+      <if test="mgr != null">
+        mgr,
+      </if>
+      <if test="hiredate != null">
+        hiredate,
+      </if>
+      <if test="sal != null">
+        sal,
+      </if>
+      <if test="comm != null">
+        comm,
+      </if>
+      <if test="deptno != null">
+        deptno,
+      </if>
+      <if test="dname != null">
+        dname,
+      </if>
+      <if test="photoFile != null">
+        photoFile,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empno != null">
+        #{empno,jdbcType=INTEGER},
+      </if>
+      <if test="ename != null">
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null">
+        #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="mgr != null">
+        #{mgr,jdbcType=INTEGER},
+      </if>
+      <if test="hiredate != null">
+        #{hiredate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sal != null">
+        #{sal,jdbcType=REAL},
+      </if>
+      <if test="comm != null">
+        #{comm,jdbcType=VARCHAR},
+      </if>
+      <if test="deptno != null">
+        #{deptno,jdbcType=INTEGER},
+      </if>
+      <if test="dname != null">
+        #{dname,jdbcType=VARCHAR},
+      </if>
+      <if test="photoFile != null">
+        #{photoFile,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

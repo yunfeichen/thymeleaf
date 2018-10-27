@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>[[#{app.report.name}]]</title>
+    <link href="/css/bootstrap.css" type="text/css" rel="stylesheet"></link>
+    <link href="/css/bootstrap-datetimepicker.css"  rel="stylesheet"></link>
+    <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <script src="/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/js/bootstrap-datetimepicker.zh-CN.js"></script>
+    <style type="text/css">
+        .pagination {
+            margin: 0px
+        }
+
+        .pagination > li > a, .pagination > li > span {
+            margin: 0 5px;
+            border: 1px solid #dddddd;
+        }
+
+        .glyphicon {
+            margin-right: 3px;
+        }
+
+        .form-control[readonly] {
+            cursor: pointer;
+            background-color: white;
+        }
+        #dlgPhoto .modal-body{
+            text-align: center;
+        }
+        .preview{
+            max-width: 500px;
+        }
+    </style>
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container" style="text-align: center">
+        <h1>《Spring Boot 实战》系列课实战案例</h1>
+    </div>
+</nav>
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="editForm">
+<!--<div class="modal-dialog" role="document">-->
+<!--<div class="modal-content">-->
+<!--<div class="modal-header">-->
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<h4 class="modal-title">Modal title</h4>
+</div>
+<div class="modal-body">
+<form action="/create" method="post" enctype="multipart/form-data">
+<div class="form-group">
+<label for="empno">员工编号</label>
+<input type="text" name="empno" readonly class="form-control" id="empno" placeholder="请输入员工编号" th:field="${emp.empno}">
+</div>
+<div class="form-group">
+<label for="ename">员工姓名</label>
+<input type="text" name="ename" class="form-control" id="ename" placeholder="请输入员工姓名" th:field="${emp.ename}">
+</div>
+<div class="form-group">
+<label for="mgr">主管姓名</label>
+<input type="text" name="mgr" class="form-control" id="mgr" placeholder="请输入主管姓名" th:field="${emp.mgr}">
+</div>
+<div class="form-group">
+<label>部门</label>
+<select id="dname" name="dname" class="form-control" >
+<option th:value="${emp.dname}">请选择</option>
+</select>
+</div>
+<div class="form-group">
+<label>岗位</label>
+<select id="job" name="job" class="form-control" >
+<option th:value="${emp.job}">请选择</option>
+</select>
+</div>
+<div class="form-group">
+<label for="hiredate">入职时间</label>
+<input type="text" name="hiredate" readonly class="form-control" id="hiredate" placeholder="请选择入职时间" th:field="${emp.hiredate}">
+</div>
+<div class="form-group">
+<label for="sal">工资</label>
+<input type="text" name="sal" class="form-control" id="sal" placeholder="请输入工资" th:field="${emp.sal}">
+</div>
+<div class="form-group">
+<label for="comm">奖金</label>
+<input type="text" name="comm" class="form-control" id="comm" placeholder="请输入奖金" th:field="${emp.comm}">
+</div>
+<div class="form-group">
+<label for="photo">员工照片</label>
+<input type="file" id="photo" name="photo" >
+</div>
+<div class="form-group" style="text-align: center;">
+<button type="submit" class="btn btn-primary" id="btnSave">保存</button>
+</div>
+</form>
+</div>
+<!--</div>&lt;!&ndash; /.modal-content&ndash;&gt;-->
+<!--</div>&lt;!&ndash; /.modal-dialog&ndash;&gt;-->
+<!--</div>&lt;!&ndash; /.modal&ndash;&gt;-->
+
+<script>
+    $(function () {
+        $('#hiredate').datetimepicker({
+            language: 'zh-CN',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0,
+            format: 'yyyy-mm-dd'
+        });
+
+        $("#dname").change(function () {
+            var dept = $(this).val();
+            $.ajax({
+                url: "/job?d=" + dept,
+                type: "get",
+                // data: {"dname": dname},
+                dataType: "json",
+                success: function (json) {
+                    $("#job").get(0).length = 0;
+                    for (var i = 0; i < json.length; i++) {
+                        $("#job").get(0).options.add(new Option(json[i]));
+                    }
+                }
+            });
+        });
+
+    })
+</script>
+</body>
+</html>
